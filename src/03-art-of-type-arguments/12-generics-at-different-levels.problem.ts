@@ -1,9 +1,19 @@
 import { expect, it, describe } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const getHomePageFeatureFlags = (
-  config: unknown,
-  override: (flags: unknown) => unknown
+interface ObjNested {
+  rawConfig: {
+    featureFlags: {
+      homePage: any;
+    }
+  }
+}
+
+export const getHomePageFeatureFlags = <T extends ObjNested>(
+  config: T,
+  override: (
+    flags: T['rawConfig']['featureFlags']['homePage']
+    ) => T['rawConfig']['featureFlags']['homePage']
 ) => {
   return override(config.rawConfig.featureFlags.homePage);
 };

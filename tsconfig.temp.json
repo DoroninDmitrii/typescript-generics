@@ -14,6 +14,6 @@
     "skipLibCheck": true
   },
   "include": [
-    "/home/doronin/Personal/Programming/My projects/TypeScript/typescript-generics/src/02-passing-type-arguments/11-data-fetcher.problem.ts"
+    "/home/doronin/Personal/Programming/My projects/TypeScript/typescript-generics/src/03-art-of-type-arguments/12-generics-at-different-levels.problem.ts"
   ]
 }
