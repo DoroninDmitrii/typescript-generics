@@ -1,14 +1,12 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const makeSafe =
-  (func: unknown) =>
-  (
-    ...args: unknown
+const makeSafe = <T extends any[], TReturn>(func: (...args: T) => TReturn) => (
+  ...args: T
   ):
     | {
         type: "success";
-        result: unknown;
+        result: TReturn;
       }
     | {
         type: "failure";
@@ -95,7 +93,6 @@ it("Should properly match the function's arguments", () => {
 
   // @ts-expect-error
   func();
-
   // @ts-expect-error
   func(1, 1);
 

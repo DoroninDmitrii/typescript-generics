@@ -5,8 +5,9 @@ import { Equal, Expect } from "../helpers/type-utils";
  * You can either specify the entire object in
  * the generic slot...
  */
-const typedObjectKeys = <TObject extends object>(obj: TObject) => {
-  return Object.keys(obj) as Array<keyof TObject>;
+
+const typedObjectKeys = <T extends string>(obj: Record<T, any>) => {
+  return Object.keys(obj) as Array<T>;
 };
 
 it("Should return the keys of the object", () => {
